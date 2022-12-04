@@ -1,0 +1,748 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+    name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="https://s3.eu-west-2.amazonaws.com/maximilian-lever.com-assets/IMG/MJL.png" />
+    <title>AWS - EC2</title>
+    <link
+    rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/blog/" />
+    <!-- Bootstrap core CSS -->
+    <link
+    href="https://dipvkpx7wt4f2.cloudfront.net/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Ballet&display=swap" rel="stylesheet" />
+    <link
+    href="https://dipvkpx7wt4f2.cloudfront.net/assets/css/01aaa1aah.css" rel="stylesheet" />
+    <!-- IDE -->
+    <style>
+    .aws-button {
+    padding: 2px 10px;
+    background: #dd6b10;
+    color: #fff;
+    }
+    .lx-OUG {
+    position: absolute;
+    width: 116px;
+    }
+    .lx-AVG {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    }
+    .lx-BVG {
+    text-align: center;
+    }
+    .lx-MUG {
+    height: 20px;
+    font-size: 11px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    }
+    .lx-KUG {
+    margin: 0px 0px 0px 116px;
+    width: 77%;
+    }
+    .lx-N4.lx-A5 {
+    color: #444;
+    border: 1px solid #ccc;
+    background: #ececec;
+    background: -webkit-linear-gradient(top, #f6f6f6 0%, #e0e0e0);
+    background: -moz-linear-gradient(top, #f6f6f6 0%, #e0e0e0);
+    background: -ms-linear-gradient(top, #f6f6f6 0%, #e0e0e0);
+    background: linear-gradient(top, #f6f6f6 0%, #e0e0e0);
+    -webkit-box-shadow: 0 0 0 rgb(0 0 0 / 0%),
+    inset 0 0 2px rgb(255 255 255);
+    -moz-box-shadow: 0 0 0 rgba(000, 000, 000, 0),
+    inset 0 0 2px rgba(255, 255, 255, 1);
+    -ms-box-shadow: 0 0 0 rgba(000, 000, 000, 0),
+    inset 0 0 2px rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 rgb(0 0 0 / 0%), inset 0 0 2px rgb(255 255 255);
+    text-shadow: 0 1px 0 rgb(255 255 255), 0 0 0 rgb(255 255 255 / 0%);
+    }
+    .lx-N4 {
+    color: #444;
+    border: 1px solid #ccc;
+    background: #ececec;
+    background: -webkit-linear-gradient(top, #f6f6f6 0%, #e0e0e0);
+    background: -moz-linear-gradient(top, #f6f6f6 0%, #e0e0e0);
+    background: -ms-linear-gradient(top, #f6f6f6 0%, #e0e0e0);
+    background: linear-gradient(top, #f6f6f6 0%, #e0e0e0);
+    -webkit-box-shadow: 0 0 0 rgb(0 0 0 / 0%),
+    inset 0 0 2px rgb(255 255 255);
+    -moz-box-shadow: 0 0 0 rgba(000, 000, 000, 0),
+    inset 0 0 2px rgba(255, 255, 255, 1);
+    -ms-box-shadow: 0 0 0 rgba(000, 000, 000, 0),
+    inset 0 0 2px rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 rgb(0 0 0 / 0%), inset 0 0 2px rgb(255 255 255);
+    text-shadow: 0 1px 0 rgb(255 255 255), 0 0 0 rgb(255 255 255 / 0%);
+    }
+    .lx-A5 {
+    color: #fff;
+    border: 1px solid #16b;
+    background: #2378cd;
+    cursor: pointer;
+    font: 14px "Helvetica Neue", Helvetica, Arial, "Lucida Grande",
+    sans-serif;
+    font-weight: bold;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    background: -webkit-linear-gradient(top, #38d 0, #16b);
+    background: -moz-linear-gradient(top, #38d 0, #16b);
+    background: -ms-linear-gradient(top, #38d 0, #16b);
+    background: linear-gradient(top, #38d 0, #16b);
+    -webkit-box-shadow: 0 0 0 rgb(0 0 0 / 0%),
+    inset 0 0 2px rgb(119 170 204);
+    -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0),
+    inset 0 0 2px rgba(119, 170, 204, 1);
+    -ms-box-shadow: 0 0 0 rgba(0, 0, 0, 0),
+    inset 0 0 2px rgba(119, 170, 204, 1);
+    box-shadow: 0 0 0 rgb(0 0 0 / 0%), inset 0 0 2px rgb(119 170 204);
+    text-shadow: 0 1px 0 rgb(25 84 167), 0 0 0 rgb(255 255 255 / 0%);
+    width: 100px;
+    height: 30px;
+    padding-bottom: 2px;
+    }
+    </style>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.997.0" data-gr-ext-installed="">
+    <div class="container">
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1"></div>
+          <div class="col-4 text-center">
+            <a class="blog-header-logo text-dark" href="#" style="font-family: 'Ballet', cursive; text-decoration: none">
+              <h1 style="font-weight: 600">Maximilian Lever</h1>
+            </a>
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center"></div>
+        </div>
+      </header>
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="../AWS/ActiveDirectory.html">AWS</a>
+          <a class="p-2 text-muted" href="../BeaverBuilder/setup.html">Beaver Builder</a>
+          <a class="p-2 text-muted" href="../CSS/bootstrap.html">CSS</a>
+          <a class="p-2 text-muted" href="../G.I.M.P/transparent.html">G.I.M.P</a>
+          <a class="p-2 text-muted" href="../MYSQL/tutorial.html">MYSQL</a>
+          <a class="p-2 text-muted" href="../PHP/MVC.html">PHP</a>
+          <a class="p-2 text-muted" href="../Python/machineLearning.html">Python</a>
+        </nav>
+      </div>
+    </div>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">EC2</h3>
+          <!-- Launch an EC2 Instance -->
+          <div class="blog-post">
+            <h2 class="blog-post-title">Launch an EC2 Instance</h2>
+            <p class="blog-post-meta">
+            September 12, 2020 by
+            <a href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+            </p>
+
+            <ol>
+            <li>Open EC2 from AWS Management console.</li>
+            <li>Go to <span class="aws-button">Launch instance</span></li>
+            <li>
+            Select the platform to best suit you
+            <div
+            style=" cursor: auto;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+            height: 84px;
+            " gwtuirendered="gwt-uid-2710">
+            <div class="lx-OUG">
+            <div class="lx-AVG">
+            <img
+            src="https://d3dpe6cn5u5qvg.cloudfront.net/2021-02-19T07-35-08_91a559ec266d4cf1c6745e338c0143d8a4542d7836e9077621a912e6e2cbb0a5/Static/clear.cache.gif" style=" width: 20px;
+            height: 20px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACc0lEQVR42r2UTWtTQRSGg1bbarHVljQV8Q+oUF2IgosKigjiwn/gD9CVSxduXIgfIBQXVaHaapqYmzSLpPYjVq0gogiKMbZVE6y2Fgra2oIwc+b1zEy9NzcfRlx44Z3NnXnmPWfOOYHA//rwPQtVCINenIYc2Q/54DDU63NQX1LAyifUBix9gJrsBj09CTG8FzIRhIisq6zkdshMF+j5KXNpFUc50MszkKk9EOG1nuKtPsmBNVaRRnbO0NxlP1DNT4CmeuD7fuRB2Qsc5iFIh0HhgJFMbgNNnID62OvfvzQNenMeam4EATV1DeIOH0h02M35W5yjz97mxXfs4iLo/Q0fQ3GOKXcJcqwLMtYMcTfAF11nIC9uSJE6IzkYAj06BpW7yvAZD7LwDPTqLGjsAEM2QQyw60g9ZLzNSBX6NPAmhLOZIR2e+Eap4f18ILXL0uYfGxdG0XpzRgy2e3JaQIXbFijj/DMRKpfTBJneaYFzGeuGX7+S9AXKAHkRzhYTpki0+3VvI+TQbgv8Og4ZbeDUtFWVG7I0IYfKFWsCDXW6QBFt/CPQDdnmI1QmGdMOO4sc/gVQL3I15FKJEqCINHC+W6vKy6F+FH7dMnEOKe0HlnZOsVyHgrvBVzZu+bDD+xaoTA4rOzQpcppB+V7dKd22rfTP5FafRNGjlAF/Xxpv4QKvM1J5fmXo6ufRJHTla3B0vS10XVsM9MrmIQM3eCGuQmQ8yF113ML80+Ytt9oV0PgRPhD0BkJ6hwfkzjHdw87oCff9NPf38kzt2agWJ3lzDyhzFDS8z4Y8OwoaPWiHx3IB/z65v2Wtw5VZ4OdCtNb+X/gs3gJ6Pb3jAAAAAElFTkSuQmCC)
+            no-repeat 0px 0px;
+            "/>
+            </div>
+            <div class="lx-BVG">Amazon Linux</div>
+            <div class="lx-MUG">Free tier eligible</div>
+            </div>
+            <div class="lx-KUG">
+            <div style="font-size: 15px; padding-bottom: 10px">
+            <span style="font-weight: bold">Amazon Linux 2 AMI (HVM), SSD Volume Type</span>
+            <span>
+            - ami-0ffd774e02309201f (64-bit x86) /
+            ami-0a83028340c968023 (64-bit Arm)</span>
+            </div>
+            </div>
+            </div>
+            </li>
+            <li>
+            Select Instance
+            <table
+            __gwtcellbasedwidgetimpldispatchingfocus="true" __gwtcellbasedwidgetimpldispatchingblur="true" class="lx-L1C lx-HQG" cellspacing="0" id="gwt-debug-instanceTypeList">
+            <colgroup>
+            <col style="width: 40px" />
+            <col style="width: 314px" />
+            <col style="width: 157px" />
+            <col style="width: 200px" />
+            <col style="width: 209px" />
+            <col style="width: 279px" />
+            <col style="width: 279px" />
+            <col style="width: 279px" />
+            <col style="width: 143px" />
+            <col style="width: 0px; display: none" />
+            </colgroup>
+            <thead style="">
+            <tr __gwt_header_row="0">
+            <th
+            colspan="1" class="lx-J0C lx-H0C" __gwt_column="column-gwt-uid-2618">
+            <div style="position: relative; zoom: 1">
+            <div __gwt_header="header-gwt-uid-2619">
+            <div class="lx-K0C">&nbsp;</div>
+            </div>
+            <div resize-col="0" class="lx-A2C"></div>
+            </div>
+            </th>
+            <th
+            colspan="1" class="lx-J0C lx-I1C" __gwt_column="column-gwt-uid-2620">
+            <div style="position: relative; zoom: 1">
+            <div __gwt_header="header-gwt-uid-2621">
+            <span gwtuirendered="gwt-uid-2622">
+            <span class="lx-A1G">Family</span>
+            <span
+            class="lx-B1G" id="gwt-uid-2622:tooltipIconContainer">
+            </span>
+            </span>
+            </div>
+            <div resize-col="1" class="lx-A2C"></div>
+            </div>
+            </th>
+            <th
+            colspan="1" class="lx-J0C lx-I1C" __gwt_column="column-gwt-uid-2623">
+            <div style="position: relative; zoom: 1">
+            <div __gwt_header="header-gwt-uid-2624">
+            <span gwtuirendered="gwt-uid-2625">
+            <span class="lx-A1G">Type</span>
+            <span
+            class="lx-B1G" id="gwt-uid-2625:tooltipIconContainer">
+            </span>
+            </span>
+            </div>
+            <div resize-col="2" class="lx-A2C"></div>
+            </div>
+            </th>
+            <th
+            colspan="1" class="lx-J0C lx-I1C" __gwt_column="column-gwt-uid-2626">
+            <div style="position: relative; zoom: 1">
+            <div __gwt_header="header-gwt-uid-2627">
+            <span gwtuirendered="gwt-uid-2628">
+            <span class="lx-A1G">vCPUs</span>
+            <span
+            class="lx-B1G" id="gwt-uid-2628:tooltipIconContainer">
+            <img
+            onload='this.__gwtLastUnhandledEvent="load";'
+            src="https://d3dpe6cn5u5qvg.cloudfront.net/2021-02-19T07-35-08_91a559ec266d4cf1c6745e338c0143d8a4542d7836e9077621a912e6e2cbb0a5/Static/clear.cache.gif" style=" width: 19px;
+            height: 19px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABLUlEQVR42rVUO46DQAzNAVLsoThFsrlBmvRIewokPkI0IG4AEmmSnhLoKBm2YOlTOX4oiWYDE0b5jGSNPLafnu2xF4tPH8uylo7j7FgOLH8sdLmh72DXAmLnled5bZIkVBQFtW1Lfd8PN3S8ww6/OaCfKIqorusBQCWwww/+SkZhGN6YXEUIQXmeU1mW/97hB3/btr9HNXJd93eKEYAMwyDTNCcZcspdEARfMqttmqbKlOI4pizLJu2IQ/wNjFllVVU9BYY4xMvMmvta6aR5rSnHCxnspOrcHFjXdQA7yWDibcwe1WwODHEMttfq5hzYqJtv/WeXVNdTE4CfDyDf90cTgJHiuI1yNgGoM5vwU86mzBBbAbXAlmiaZmg/ugYd77CPZlJjnx1f2mevnDMKgC50rSPJEAAAAABJRU5ErkJggg==)
+            no-repeat 0px 0px;
+            " border="0" />
+            </span>
+            </span>
+            </div>
+            <div resize-col="3" class="lx-A2C"></div>
+            </div>
+            </th>
+            <th
+            colspan="1" class="lx-J0C lx-I1C" __gwt_column="column-gwt-uid-2629">
+            <div style="position: relative; zoom: 1">
+            <div __gwt_header="header-gwt-uid-2630">
+            <span gwtuirendered="gwt-uid-2631">
+            <span class="lx-A1G">Memory (GiB)</span>
+            <span
+            class="lx-B1G" id="gwt-uid-2631:tooltipIconContainer">
+            </span>
+            </span>
+            </div>
+            <div resize-col="4" class="lx-A2C"></div>
+            </div>
+            </th>
+            <th
+            colspan="1" class="lx-J0C lx-I1C" __gwt_column="column-gwt-uid-2632">
+            <div style="position: relative; zoom: 1">
+            <div __gwt_header="header-gwt-uid-2633">
+            <span gwtuirendered="gwt-uid-2634">
+            <span class="lx-A1G">Instance Storage (GB)</span>
+            <span
+            class="lx-B1G" id="gwt-uid-2634:tooltipIconContainer">
+            <img
+            onload='this.__gwtLastUnhandledEvent="load";'
+            src="https://d3dpe6cn5u5qvg.cloudfront.net/2021-02-19T07-35-08_91a559ec266d4cf1c6745e338c0143d8a4542d7836e9077621a912e6e2cbb0a5/Static/clear.cache.gif" style=" width: 19px;
+            height: 19px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABLUlEQVR42rVUO46DQAzNAVLsoThFsrlBmvRIewokPkI0IG4AEmmSnhLoKBm2YOlTOX4oiWYDE0b5jGSNPLafnu2xF4tPH8uylo7j7FgOLH8sdLmh72DXAmLnled5bZIkVBQFtW1Lfd8PN3S8ww6/OaCfKIqorusBQCWwww/+SkZhGN6YXEUIQXmeU1mW/97hB3/btr9HNXJd93eKEYAMwyDTNCcZcspdEARfMqttmqbKlOI4pizLJu2IQ/wNjFllVVU9BYY4xMvMmvta6aR5rSnHCxnspOrcHFjXdQA7yWDibcwe1WwODHEMttfq5hzYqJtv/WeXVNdTE4CfDyDf90cTgJHiuI1yNgGoM5vwU86mzBBbAbXAlmiaZmg/ugYd77CPZlJjnx1f2mevnDMKgC50rSPJEAAAAABJRU5ErkJggg==)
+            no-repeat 0px 0px;
+            " border="0" />
+            </span>
+            </span>
+            </div>
+            <div resize-col="5" class="lx-A2C"></div>
+            </div>
+            </th>
+            <th
+            colspan="1" class="lx-J0C lx-I1C" __gwt_column="column-gwt-uid-2635">
+            <div style="position: relative; zoom: 1">
+            <div __gwt_header="header-gwt-uid-2636">
+            <span gwtuirendered="gwt-uid-2637">
+            <span class="lx-A1G">EBS-Optimized Available</span>
+            <span
+            class="lx-B1G" id="gwt-uid-2637:tooltipIconContainer">
+            <img
+            onload='this.__gwtLastUnhandledEvent="load";'
+            src="https://d3dpe6cn5u5qvg.cloudfront.net/2021-02-19T07-35-08_91a559ec266d4cf1c6745e338c0143d8a4542d7836e9077621a912e6e2cbb0a5/Static/clear.cache.gif" style=" width: 19px;
+            height: 19px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABLUlEQVR42rVUO46DQAzNAVLsoThFsrlBmvRIewokPkI0IG4AEmmSnhLoKBm2YOlTOX4oiWYDE0b5jGSNPLafnu2xF4tPH8uylo7j7FgOLH8sdLmh72DXAmLnled5bZIkVBQFtW1Lfd8PN3S8ww6/OaCfKIqorusBQCWwww/+SkZhGN6YXEUIQXmeU1mW/97hB3/btr9HNXJd93eKEYAMwyDTNCcZcspdEARfMqttmqbKlOI4pizLJu2IQ/wNjFllVVU9BYY4xMvMmvta6aR5rSnHCxnspOrcHFjXdQA7yWDibcwe1WwODHEMttfq5hzYqJtv/WeXVNdTE4CfDyDf90cTgJHiuI1yNgGoM5vwU86mzBBbAbXAlmiaZmg/ugYd77CPZlJjnx1f2mevnDMKgC50rSPJEAAAAABJRU5ErkJggg==)
+            no-repeat 0px 0px;
+            " border="0" />
+            </span>
+            </span>
+            </div>
+            <div resize-col="6" class="lx-A2C"></div>
+            </div>
+            </th>
+            <th
+            colspan="1" class="lx-J0C lx-I1C" __gwt_column="column-gwt-uid-2638">
+            <div style="position: relative; zoom: 1">
+            <div __gwt_header="header-gwt-uid-2639">
+            <span gwtuirendered="gwt-uid-2640">
+            <span class="lx-A1G">Network Performance</span>
+            <span
+            class="lx-B1G" id="gwt-uid-2640:tooltipIconContainer">
+            <img
+            onload='this.__gwtLastUnhandledEvent="load";'
+            src="https://d3dpe6cn5u5qvg.cloudfront.net/2021-02-19T07-35-08_91a559ec266d4cf1c6745e338c0143d8a4542d7836e9077621a912e6e2cbb0a5/Static/clear.cache.gif" style=" width: 19px;
+            height: 19px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABLUlEQVR42rVUO46DQAzNAVLsoThFsrlBmvRIewokPkI0IG4AEmmSnhLoKBm2YOlTOX4oiWYDE0b5jGSNPLafnu2xF4tPH8uylo7j7FgOLH8sdLmh72DXAmLnled5bZIkVBQFtW1Lfd8PN3S8ww6/OaCfKIqorusBQCWwww/+SkZhGN6YXEUIQXmeU1mW/97hB3/btr9HNXJd93eKEYAMwyDTNCcZcspdEARfMqttmqbKlOI4pizLJu2IQ/wNjFllVVU9BYY4xMvMmvta6aR5rSnHCxnspOrcHFjXdQA7yWDibcwe1WwODHEMttfq5hzYqJtv/WeXVNdTE4CfDyDf90cTgJHiuI1yNgGoM5vwU86mzBBbAbXAlmiaZmg/ugYd77CPZlJjnx1f2mevnDMKgC50rSPJEAAAAABJRU5ErkJggg==)
+            no-repeat 0px 0px;
+            " border="0" />
+            </span>
+            </span>
+            </div>
+            <div resize-col="7" class="lx-A2C"></div>
+            </div>
+            </th>
+            <th
+            colspan="1" class="lx-J0C lx-I1C lx-C1C" __gwt_column="column-gwt-uid-2641">
+            <div style="position: relative; zoom: 1">
+            <div __gwt_header="header-gwt-uid-2642">
+            <span gwtuirendered="gwt-uid-2643">
+            <span class="lx-A1G">IPv6 Support</span>
+            <span
+            class="lx-B1G" id="gwt-uid-2643:tooltipIconContainer">
+            <img
+            onload='this.__gwtLastUnhandledEvent="load";'
+            src="https://d3dpe6cn5u5qvg.cloudfront.net/2021-02-19T07-35-08_91a559ec266d4cf1c6745e338c0143d8a4542d7836e9077621a912e6e2cbb0a5/Static/clear.cache.gif" style=" width: 19px;
+            height: 19px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABLUlEQVR42rVUO46DQAzNAVLsoThFsrlBmvRIewokPkI0IG4AEmmSnhLoKBm2YOlTOX4oiWYDE0b5jGSNPLafnu2xF4tPH8uylo7j7FgOLH8sdLmh72DXAmLnled5bZIkVBQFtW1Lfd8PN3S8ww6/OaCfKIqorusBQCWwww/+SkZhGN6YXEUIQXmeU1mW/97hB3/btr9HNXJd93eKEYAMwyDTNCcZcspdEARfMqttmqbKlOI4pizLJu2IQ/wNjFllVVU9BYY4xMvMmvta6aR5rSnHCxnspOrcHFjXdQA7yWDibcwe1WwODHEMttfq5hzYqJtv/WeXVNdTE4CfDyDf90cTgJHiuI1yNgGoM5vwU86mzBBbAbXAlmiaZmg/ugYd77CPZlJjnx1f2mevnDMKgC50rSPJEAAAAABJRU5ErkJggg==)
+            no-repeat 0px 0px;
+            " border="0" />
+            </span>
+            </span>
+            </div>
+            <div resize-col="8" class="lx-A2C"></div>
+            </div>
+            </th>
+            </tr>
+            </thead>
+            <tbody style="">
+            <tr __gwt_row="1" __gwt_subrow="0" class="lx-E1C lx-G1C">
+            <td class="lx-B0C lx-F1C lx-F0C lx-H1C">
+            <div
+            style="outline-style: none" __gwt_cell="cell-gwt-uid-2782">
+            <label
+            class="lx-PFD" role="checkbox" aria-checked="true">
+            <span class="lx-BGD">
+            <span class="lx-AGD lx-CGD"> </span>
+            </span>
+            </label>
+            </div>
+            </td>
+            <td class="lx-B0C lx-F1C lx-H1C">
+            <div
+            style="outline-style: none" __gwt_cell="cell-gwt-uid-2783">
+            t2
+            </div>
+            </td>
+            <td class="lx-B0C lx-F1C lx-H1C">
+            <div
+            style="outline-style: none" __gwt_cell="cell-gwt-uid-2784">
+            <div style="line-height: 20px; padding-top: 6px">
+            <span
+            class="type" style=" border-bottom: 1px dashed #777;
+            cursor: help;
+            ">t2.micro</span>
+            </div>
+            <div
+            style=" line-height: 15px;
+            padding-bottom: 6px;
+            padding-top: 2px;
+            ">
+            <span
+            class="freeTier" style=" cursor: pointer;
+            color: white;
+            background: #2e972e;
+            font-size: 12px;
+            padding: 0px 4px;
+            ">Free tier eligible</span>
+            </div>
+            </div>
+            </td>
+            <td class="lx-B0C lx-F1C lx-H1C">
+            <div
+            style="outline-style: none" __gwt_cell="cell-gwt-uid-2785">
+            1
+            </div>
+            </td>
+            <td class="lx-B0C lx-F1C lx-H1C">
+            <div
+            style="outline-style: none" __gwt_cell="cell-gwt-uid-2786">
+            1
+            </div>
+            </td>
+            <td class="lx-B0C lx-F1C lx-H1C">
+            <div
+            style="outline-style: none" __gwt_cell="cell-gwt-uid-2787">
+            <div>
+            <span>EBS only</span>
+            </div>
+            </div>
+            </td>
+            <td class="lx-B0C lx-F1C lx-H1C">
+            <div
+            style="outline-style: none" __gwt_cell="cell-gwt-uid-2788">
+            -
+            </div>
+            </td>
+            <td class="lx-B0C lx-F1C lx-H1C">
+            <div
+            style="outline-style: none" __gwt_cell="cell-gwt-uid-2789">
+            <div>
+            <span>Low to Moderate</span>
+            </div>
+            </div>
+            </td>
+            <td class="lx-B0C lx-F1C lx-H1C lx-A1C">
+            <div
+            style="outline-style: none" __gwt_cell="cell-gwt-uid-2790">
+            Yes
+            </div>
+            </td>
+            </tr>
+            </tbody>
+            <tfoot aria-hidden="true" style="display: none"></tfoot>
+            </table>
+            </li>
+            <li>
+            <button class="lx-N4">
+            Next: Configure Instance Details (This can be left as default)
+            </button>
+            </li>
+            <li>
+            <button class="lx-N4">
+            Next: Add Storage (This can be left as default)
+            </button>
+            </li>
+            <li><button class="lx-N4">Next: Add Tags</button></li>
+            <li>Select <button class="lx-N4">Add Tag</button></li>
+            <li>
+            <div class="codeblock">
+            <code>>Key = Name, Value =
+            <span class="comment">*Name of Server*</span>
+            </code>
+            </div>
+            </li>
+            <li>
+            Next: Configure Security Group (Either Create or Select an
+            existing security group).
+            </li>
+            <li>
+            Add Rule
+            <div class="codeblock">
+            <code>Type = HTTP, Source = Anywhere
+            <span class="comment">//This rule is for your instance to be publicly accessed
+            by browser.</span>
+            </code>
+            <br />
+            <code>Type = SSH, Source = Anywhere
+            <span class="comment">//This rule is to allow GitBash to SSH and SCP to your
+            instance.</span>
+            </code>
+            </div>
+            </li>
+            <li>
+            <button class="lx-A5" style="width: 200px">
+            Next: Review and Launch.
+            </button>
+            </li>
+            <li>
+            <button class="lx-A5">Launch</button>
+            </li>
+            <li>
+            Create a new key pair and name the keypair (Or choose an
+            existing keypair).
+            </li>
+            <li>
+            Download keypair and store it somewhere safe if you create a new
+            key pair.
+            </li>
+            <li>
+            <button class="lx-A5">Launch</button>
+            </li>
+            </ol>
+            <hr />
+          </div>
+          <!-- Create a Template of an EC2 Instance -->
+          <div class="blog-post">
+            <h2 class="blog-post-title">
+            Create a Template of an EC2 Instance
+            </h2>
+            <p class="blog-post-meta">
+            September 12, 2020 by
+            <a href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+            </p>
+
+            <ol>
+            <li>Open EC2 from AWS Management console.</li>
+            <li>Go to <span class="aws-button">Launch instance</span></li>
+            <li>Select the instance you want to make a template of.</li>
+            <li>Select Actions>Image>Create Template From Instance.</li>
+            <li>Name template e.g *Name of Server* Template.</li>
+            <li>
+            Give template a description e.g Template of *Name of Server*.
+            </li>
+            <li>Select a Key pair.</li>
+            <li>Default can be left on all other options.</li>
+            <li>Click <button class="lx-A5" style="width: 193px;">Create launch template</button></li>
+            </ol>
+            <hr />
+          </div>
+          <!-- Launch an EC2 Instance from a Template -->
+          <div class="blog-post">
+            <h2 class="blog-post-title">
+            Launch an EC2 Instance from a Template
+            </h2>
+            <p class="blog-post-meta">
+            September 12, 2020 by
+            <a href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+            </p>
+
+            <ol>
+            <li>Open EC2 from AWS Management console.</li>
+            <li>
+            Go to <span class="aws-button">Launch instance</span> and select <span class="aws-button">Launch instance from
+              template</span>
+            </li>
+            <li>Select a template that you have already made.</li>
+            <li>Click <button class="lx-A5" style="width: 150px;">Launch template</button></li>
+            </ol>
+            <hr />
+          </div>
+          <!-- Creating an AMI -->
+          <div class="blog-post">
+            <h2 class="blog-post-title">Creating an AMI</h2>
+            <p class="blog-post-meta">
+            September 12, 2020 by
+            <a href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+            </p>
+
+            <ol>
+            <li>Open EC2 from AWS Management console.</li>
+            <li>
+            Go to running instances and select the instance you want to make
+            an image of.
+            </li>
+            <li>Select Actions>Image>Create Image.</li>
+            <li>Name the image.</li>
+            <li>Give description that best fits the image.</li>
+            <li>Deselect No reboot.</li>
+            <li>Finish by Clicking Create image.</li>
+            </ol>
+            <hr />
+          </div>
+          <!-- Connecting via PuTTY -->
+          <div class="blog-post">
+            <h2 class="blog-post-title">Connecting via PuTTY</h2>
+            <p class="blog-post-meta">
+            September 9, 2020 by
+            <a
+            target="_blank" href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+            </p>
+            <ol>
+            <li>
+            Download and install PuTTY from
+            <a
+            target="_blank" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html</a>.
+            </li>
+            <li>Open PuTTYgen.</li>
+            <li>Click Load and select the .pem file.</li>
+            <li>Click Save private key.</li>
+            <li>Click Yes to saving the key without a passphrase.</li>
+            <li>Name the .ppk file the same as the .pem file.</li>
+            <li>Open PuTTY and enter the Public IP address of the server.</li>
+            <li>
+            In Category under Connection > SSH > Auth browse for the .ppk
+            file that was generated.
+            </li>
+            <li>Click Open.</li>
+            <li>
+            When asked ‘login as:’ type in ec2-user.
+            <div class="codeblock">
+            <code>login as: ec2-user</code>
+            </div>
+            </li>
+            </ol>
+            <hr />
+          </div>
+          <!-- Connecting via Gitbash -->
+          <div class="blog-post">
+            <h2 class="blog-post-title">Connecting via Gitbash</h2>
+            <p class="blog-post-meta">
+            September 9, 2020 by
+            <a href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+            </p>
+
+            <ol>
+            <li>
+            Open a Gitbash terminal where the keypair to the server is.
+            </li>
+            <li>
+            Type into the terminal
+            <div class="codeblock">
+            <code>ssh -i keypair.pem ec2-user@public-dns.com.</code>
+            </div>
+            </li>
+            </ol>
+            <hr />
+          </div>
+          <!-- Sending files via SCP -->
+          <div class="blog-post">
+            <h2 class="blog-post-title">Sending files via SCP</h2>
+            <p class="blog-post-meta">
+            September 9, 2020 by
+            <a href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+            </p>
+
+            <ol>
+            <li>
+            Open a Gitbash terminal where the keypair to the server is.
+            </li>
+            <li>
+            Type into the terminal
+            <div class="codeblock">
+            <code>scp -i keypair.pem file.html
+            ec2-user@public-dns.com:~/.</code>
+            </div>
+            </li>
+            <li>
+            Type into the terminal
+            <div class="codeblock">
+            <code>ssh -i keypair.pem ec2-user@public-dns.com.</code>
+            </div>
+            </li>
+            <li>
+            Move file to the the apache document root folder using.
+            <div class="codeblock">
+            <code>mv file.html /var/www/html.</code>
+            </div>
+            </li>
+            </ol>
+            <hr />
+          </div>
+        </div>
+        <!-- /.blog-main -->
+        <aside class="col-md-4 blog-sidebar">
+        <div class="p-3">
+          <h4 class="font-italic">Archives</h4>
+          <ol class="list-unstyled mb-0" style="width: 130px">
+            <li><a class="p-2 text-muted" href="./ActiveDirectory.html">Active Directory</a></li>
+            <li><a class="p-2 text-muted" href="./AWSCLI.html">AWSCLI</a></li>
+            <li><a class="p-2 text-muted" href="./RDS.html">RDS</a></li>
+            <li><a class="p-2 text-muted" href="#">EC2</a></li>
+            <li><a class="p-2 text-muted" href="./EC2 for apache.html">EC2 for apache</a></li>
+            <li>
+                <a class="p-2 text-muted" href="./Lightsail.html">Lightsail</a>
+            </li>
+            <li><a class="p-2 text-muted" href="./Workspace.html">Workspace</a></li>
+            <li><a class="p-2 text-muted" href="./VPC.html">VPC</a></li>
+            <li><a class="p-2 text-muted" href="./CloudFront.html">CloudFront</a></li>
+            <li><a class="p-2 text-muted" href="./S3.html">S3</a></li>
+            <li><a class="p-2 text-muted" href="./Route53.html">Route53</a></li>
+          </ol>
+        </div>
+
+        <!-- <div class="p-3">
+        <h4 class="font-italic">Elsewhere</h4>
+        <ol class="list-unstyled">
+        <li>
+        <a href="#">GitHub</a>.</li>
+        <li>
+        <a href="#">Twitter</a>.</li>
+        <li>
+        <a href="#">Facebook</a>.</li>
+        </ol>
+        </div> -->
+        </aside>
+        <!-- /.blog-sidebar -->
+      </div>
+      <!-- /.row -->
+    </main>
+    <!-- /.container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>
+    window.jQuery ||
+    document.write(
+    '<script src="../../assets/js/vendor/jquery-slim.min.js><\/script>'
+    );
+    </script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+    Holder.addTheme("thumb", {
+    bg: "#55595c",
+    fg: "#eceeef",
+    text: "Thumbnail",
+    });
+    </script>
+
+    <svg
+    xmlns="http://www.w3.org/2000/svg" width="200" height="250" viewBox="0 0 200 250" preserveAspectRatio="none" style=" display: none;
+    visibility: hidden;
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    ">
+    <defs>
+    <style type="text/css"></style>
+    </defs>
+    <text
+    x="0" y="13" style=" font-weight: bold;
+    font-size: 13pt;
+    font-family: Arial, Helvetica, Open Sans, sans-serif;
+    ">
+    Thumbnail
+    </text>
+    </svg>
+  </body>
+</html>

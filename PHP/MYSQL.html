@@ -1,0 +1,249 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico" />
+
+    <title>PHP - MYSQL</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.0/examples/blog/"
+    />
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://dipvkpx7wt4f2.cloudfront.net/assets/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ballet&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/css/01aaa1aah.css" rel="stylesheet"/><!-- IDE -->
+  </head>
+
+  <body data-new-gr-c-s-check-loaded="14.997.0" data-gr-ext-installed="">
+    <div class="container">
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1"></div>
+          <div class="col-4 text-center">
+            <a
+              class="blog-header-logo text-dark"
+              href="#"
+              style="font-family: 'Ballet', cursive; text-decoration: none"
+            >
+              <h1 style="font-weight: 600">Maximilian Lever</h1>
+            </a>
+          </div>
+          <div
+            class="col-4 d-flex justify-content-end align-items-center"
+          ></div>
+        </div>
+      </header>
+
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="../AWS/ActiveDirectory.html">AWS</a>
+          <a class="p-2 text-muted" href="../BeaverBuilder/setup.html"
+            >Beaver Builder</a
+          >
+          <a class="p-2 text-muted" href="../CSS/bootstrap.html">CSS</a>
+          <a class="p-2 text-muted" href="../G.I.M.P/transparent.html"
+            >G.I.M.P</a
+          >
+          <a class="p-2 text-muted" href="../MYSQL/tutorial.html">MYSQL</a>
+          <a class="p-2 text-muted" href="../PHP/MVC.html">PHP</a>
+          <a class="p-2 text-muted" href="../Python/machineLearning.html"
+            >Python</a
+          >
+        </nav>
+      </div>
+    </div>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">PHP</h3>
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">Open a Connection to MySQL</h2>
+            <p class="blog-post-meta">
+              September 14, 2020 by
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/maximilian-lever-09214097/"
+                >Maximilian Lever</a
+              >
+            </p>
+            <p>
+              Before we can access data in the MySQL database, we need to be
+              able to connect to the server:
+            </p>
+            <b>Example (MySQLi Object-Oriented)</b>
+            <div class="codeblock">
+              <code>
+                <span class="tag">$servername</span> = <span class="text">"localhost"</span>;<br>
+                <span class="tag">$username</span> = <span class="text">"root"</span>;<br>
+                <span class="tag">$password</span> = <span class="text">""</span>;<br>
+                <span class="comment">/*Create connection*/</span><br>
+                <span class="tag">$conn</span> = <span class="tag">new</span> <span class="number">mysqli</span>(<span class="tag">$servername</span>, <span class="tag">$username</span>, <span class="tag">$password</span>, <span class="tag">$dbname</span>);<br>
+                <span class="comment">/*Check connection*/</span><br>
+                <span class="statement">if</span> (<span class="tag">$conn</span>-><span class="tag">connect_error</span>) {<br>
+                  <span class="statement">die</span>(<span class="text">"Connection failed: "</span> . <span class="tag">$conn</span>-><span class="tag">connect_error</span>);<br>
+                }<br>
+                <span class="function">echo</span> <span class="text">"Connected successfully"</span>;
+              </code>
+            </div><br>
+            <b>Example (PDO)</b>
+            <div class="codeblock">
+              <code>
+                <span class="tag">$servername</span> = <span class="text">"localhost"</span>;<br>
+                <span class="tag">$username</span> = <span class="text">"root"</span>;<br>
+                <span class="tag">$password</span> = <span class="text">""</span>;<br>
+                <span class="statement">try</span> {<br>
+                  <span class="tag">$conn</span> = <span class="tag">new</span> <span class="number">PDO</span>(<span class="text">"mysql:host=</span><span class="tag">$servername</span><span class="text">;dbname=myDB",</span> <span class="tag">$username</span>, <span class="tag">$password</span>);<br>
+                  <span class="comment">// set the PDO error mode to exception</span><br>
+                  <span class="tag">$conn</span>->setAttribute(<span class="number">PDO</span>::ATTR_ERRMODE/, <span class="number">PDO</span>::ERRMODE_EXCEPTION);<br>
+                  <span class="function">echo</span> <span class="text">"Connected successfully"</span>;<br>
+                } <span class="statement">catch</span>(<span class="number">PDOException</span> <span class="tag">$e</span>) {<br>
+                  <span class="function">echo</span> <span class="text">"Connection failed: "</span> . <span class="tag">$e</span>-><span class="function">getMessage</span>();<br>
+                }
+              </code>
+            </div><br>
+            <b>MySQLi Object-Oriented:</b>
+            <p>Closes connection with the database.</p>
+            <div class="codeblock"><code><span class="tag">$conn</span>-><span class="function">close</span>();</code></div>
+            <p>Create a MySQL Database Using MySQLi and PDO</p>
+            <p>
+              The CREATE DATABASE statement is used to create a database in
+              MySQL.
+            </p>
+            <p></p>
+            <p>The following examples create a database named "myDB":</p>
+            <p></p>
+            <b>Example (MySQLi Object-oriented)</b>
+            <div class="codeblock">
+              <code>
+                <span class="tag">$servername</span> = <span class="text">"localhost"</span>;<br>
+                <span class="tag">$username</span> = <span class="text">"root"</span>;<br>
+                <span class="tag">$password</span> = <span class="text">""</span>;<br><br>
+
+                <span class="comment">/*Create connection*/</span><br>
+                <span class="tag">$conn</span> = <span class="tag">new</span> <span class="number">mysqli</span>(<span class="tag">$servername</span>, <span class="tag">$username</span>, <span class="tag">$password</span>, <span class="tag">$dbname</span>);<br>
+                <span class="comment">/*Check connection*/</span><br>
+                <span class="statement">if</span> (<span class="tag">$conn</span>-><span class="tag">connect_error</span>) {<br>
+                  <span class="statement">die</span>(<span class="text">"Connection failed: "</span> . <span class="tag">$conn</span>-><span class="tag">connect_error</span>);<br>
+                }<br><br>
+  
+                <span class="comment">// Create database</span><br>
+                  <span class="tag">$sql</span> = <span class="text">"CREATE DATABASE myDB"</span>;<br>
+                <span class="statement">if</span> (<span class="tag">$conn</span>-><span class="function">query</span>(<span class="tag">$sql</span>) === <span class="tag">TRUE</span>) {<br>
+                  <span class="function">echo</span> <span class="text">"Database created successfully"</span>;<br>
+                } <span class="statement">else</span> {<br>
+                  <span class="function">echo</span> <span class="text">"Error creating database: "</span> . <span class="tag">$conn</span>->error;<br>
+                }<br><br>
+  
+                <span class="tag">$conn</span>-><span class="function">close</span>();
+              </code>
+            </div>
+            <hr />
+          </div>
+          <!-- /.blog-post -->
+        </div>
+        <!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar">
+          <div class="p-3">
+            <h4 class="font-italic">Archives</h4>
+            <ol class="list-unstyled mb-0" style="width: 223px">
+              <li>
+                <a class="p-2 text-muted" href="#"
+                  >Model View Controller (MVC)</a
+                >
+              </li>
+              <li><a class="p-2 text-muted" href="./MYSQL.html">MYSQL</a></li>
+              <li>
+                <a class="p-2 text-muted" href="./operators.html">Operators</a>
+              </li>
+            </ol>
+          </div>
+
+          <!-- <div class="p-3">
+            <h4 class="font-italic">Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ol>
+          </div> -->
+        </aside>
+        <!-- /.blog-sidebar -->
+      </div>
+      <!-- /.row -->
+    </main>
+    <!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>'
+        );
+    </script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      Holder.addTheme("thumb", {
+        bg: "#55595c",
+        fg: "#eceeef",
+        text: "Thumbnail",
+      });
+    </script>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="200"
+      height="250"
+      viewBox="0 0 200 250"
+      preserveAspectRatio="none"
+      style="
+        display: none;
+        visibility: hidden;
+        position: absolute;
+        top: -100%;
+        left: -100%;
+      "
+    >
+      <defs><style type="text/css"></style></defs>
+      <text
+        x="0"
+        y="13"
+        style="
+          font-weight: bold;
+          font-size: 13pt;
+          font-family: Arial, Helvetica, Open Sans, sans-serif;
+        "
+      >
+        Thumbnail
+      </text>
+    </svg>
+  </body>
+</html>

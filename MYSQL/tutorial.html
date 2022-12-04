@@ -1,0 +1,318 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico" />
+
+    <title>MYSQL - Tutorial</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.0/examples/blog/"
+    />
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://dipvkpx7wt4f2.cloudfront.net/assets/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ballet&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/css/01aaa1aah.css" rel="stylesheet"/><!-- IDE -->
+  </head>
+
+  <body data-new-gr-c-s-check-loaded="14.997.0" data-gr-ext-installed="">
+    <div class="container">
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1"></div>
+          <div class="col-4 text-center">
+            <a
+              class="blog-header-logo text-dark"
+              href="#"
+              style="font-family: 'Ballet', cursive; text-decoration: none"
+            >
+              <h1 style="font-weight: 600">Maximilian Lever</h1>
+            </a>
+          </div>
+          <div
+            class="col-4 d-flex justify-content-end align-items-center"
+          ></div>
+        </div>
+      </header>
+
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="../AWS/ActiveDirectory.html">AWS</a>
+          <a class="p-2 text-muted" href="../BeaverBuilder/setup.html"
+            >Beaver Builder</a
+          >
+          <a class="p-2 text-muted" href="../CSS/bootstrap.html">CSS</a>
+          <a class="p-2 text-muted" href="../G.I.M.P/transparent.html"
+            >G.I.M.P</a
+          >
+          <a class="p-2 text-muted" href="../MYSQL/tutorial.html">MYSQL</a>
+          <a class="p-2 text-muted" href="../PHP/MVC.html">PHP</a>
+          <a class="p-2 text-muted" href="../Python/machineLearning.html"
+            >Python</a
+          >
+        </nav>
+      </div>
+    </div>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">MYSQL</h3>
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">MYSQL Tutorial</h2>
+            <p class="blog-post-meta">
+              Janurary 22, 2021 by
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/maximilian-lever-09214097/"
+                >Maximilian Lever</a
+              >
+            </p>
+            <p>
+              In this tutorial I will be explaining how to create a database in
+              MYSQL and standard practices.
+            </p>
+            <p>Step 1:</p>
+            <p>
+              In this step we are going to create a database called user. We
+              will use the syntax below to create said database.
+            </p>
+            <div class="codeblock">
+              <code>
+                <span class="tag">CREATE DATABASE</span> <span class="text">user</span>;
+              </code>
+            </div>
+            <p>Step 2:</p>
+            <p>
+              Within this database we will need a user table. The naming
+              standard we will use for this table will include the object at the
+              beginning of the name. E.g. tbl_user.
+            </p>
+            <div class="codeblock">
+              <code>
+                <span class="tag">CREATE TABLE</span> <span class="text">`tbl_user`</span> (<br />
+                <span class="text">`user_id`</span> <span class="tag">INT</span>(<span class="number">11</span>) <span class="tag">NOT NULL</span> AUTO_INCREMENT,<br />
+                <span class="text">`username`</span> <span class="tag">VARCHAR</span>(<span class="number">8</span>) <span class="tag">NOT NULL</span>,<br />
+                <span class="text">`password`</span> <span class="tag">VARCHAR</span>(<span class="number">8</span>) <span class="tag">NOT NULL</span>,<br />
+                <span class="text">`first_name`</span> <span class="tag">VARCHAR</span>(<span class="number">16</span>) <span class="tag">NOT NULL DEFAULT</span> <span class="text">'John'</span>,<br />
+                <span class="text">`last_name`</span> <span class="tag">VARCHAR</span>(<span class="number">16</span>) <span class="tag">NOT NULL DEFAULT</span> <span class="text">'Doe'</span>,<br />
+                <span class="text">`update_time`</span> <span class="tag">DATETIME</span> <span class="tag">NOT NULL DEFAULT</span> <span class="text">'2000/01/01 00:00:00'</span>,<br />
+                <span class="text">`create_time`</span> <span class="tag">DATETIME</span> <span class="tag">NOT NULL DEFAULT</span> <span class="text">'2000/01/01 00:00:00'</span>,<br />
+                <span class="tag">PRIMARY KEY</span> (<span class="text">`user_id`</span>)<br />
+                );
+              </code>
+            </div>
+            <p>
+              In the syntax above after telling the database to CREATE the user
+              table we will list what columns we want in said table.
+            </p>
+            <div class="codeblock">
+              <code>user_id :</code>
+            </div>
+            <p>
+              Every table must have an ID column and the naming convention we
+              will use is the name of the table followed by ‘_id’.
+            </p>
+            <p>
+              We will declare the datatype of the column being an INTERGER and
+              the length of the data allowed in this column. E.g. INT(11) equals
+              a number with 11 digits is the maximum allowed. (10,000,000,000)
+            </p>
+            <p>
+              We will set the rule that the column is not allowed to be NULL and
+              by default it will AUTO_INCREMENT E.g 1, 2, 3, 4
+            </p>
+            <div class="codeblock">
+              <code>username :</code>
+            </div>
+            <p>
+              This column will store a user’s username, there is no naming
+              convention for this column. Again we will declare the datatype as
+              a VARIABLE CHARACTER and the maximum number of characters the
+              column can hold. E.g VARCHAR(8)will hold a word with 8 characters.
+            </p>
+            <div class="codeblock">
+              <code>password:</code>
+            </div>
+            <p>
+              This column will be similar to the user column and have no naming
+              convention, the data type is a VARIABLE CHARACTER and the number
+              of characters is 8.
+            </p>
+            <div class="codeblock">
+              <code>first_name:</code>
+            </div>
+            <p>
+              This column will hold the user's first name. This is the first
+              column where we will set if data isn’t inserted then it will by
+              DEFAULT put the data in as John.
+            </p>
+            <div class="codeblock">
+              <code>last_name:</code>
+            </div>
+            <p>This will hold the user's last name. and the DEFAULT is Doe.</p>
+            <div class="codeblock">
+              <code>update_time :</code>
+            </div>
+            <p>
+              Here we will hold the time and date if this row is ever updated.
+              E.g The user changes their password.
+            </p>
+            <p>The DEFAULT here is 2000/01/01 00:00:00.</p>
+            <div class="codeblock">
+              <code>create_time :</code>
+            </div>
+            <p>
+              Like the update column we have a create column for when the row is
+              created.
+            </p>
+            <p>The DEFAULT here is 2000/01/01 00:00:00.</p>
+            <p>
+              Every table will require a primary column; a common practice is to
+              set the ID column as the PRIMARY.
+            </p>
+            <div class="codeblock">
+              <code><span class="tag">PRIMARY KEY</span> (<span class="text">`user_id`</span>)</code>
+            </div>
+            <p>Here we set user_id as the PRIMARY column.</p>
+            <p>Step 3:</p>
+            <p>
+              To insert data into this row we will use the following syntax.
+            </p>
+            <div class="codeblock">
+              <code>
+                <span class="tag">INSERT INTO</span> <span class="text">`user`</span>.<span class="text">`tbl_user`</span> (
+                  <span class="text">`username`</span>, <span class="text">`password`</span>
+                  ) <span class="tag">VALUES</span> (<span class="text">'doej'</span>, <span class="text">'password'</span>);
+              </code>
+            </div>
+            <p>
+              The syntax listed above tells the database to ’INSERT INTO’ and
+              then we list the database followed by the table within.
+            </p>
+            <p>
+              Then we list the columns that we want to put data into within
+              brackets, folowed by VALUES and then the data within brackets.
+            </p>
+            <p></p>
+            <p>Step 4:</p>
+            <p>The final part of this tutorial is retrieving the data.</p>
+            <div class="codeblock">
+              <code><span class="tag">SELECT</span> * <span class="tag">FROM</span> <span class="text">tbl_user</span> <span class="tag">WHERE</span> <span class="text">user_id</span> = <span class="number">1</span>;</code>
+            </div>
+            <p>
+              The syntax listed above tells the database to SELECT everything
+              FROM the user table where the user_id for the row equals 1.
+            </p>
+            <p>This will return:</p>
+            <div class="codeblock">
+              <code>
+                user_id:1<br />
+                username:doej<br />
+                password:password<br />
+                first_name:John<br />
+                last_name:Doe<br />
+                update_time:2000/01/01 00:00:00<br />
+                create_time:2000/01/01 00:00:00
+              </code>
+            </div>
+            <hr />
+          </div>
+          <!-- /.blog-post -->
+        </div>
+        <!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar">
+          <div class="p-3">
+            <h4 class="font-italic">Archives</h4>
+            <ol class="list-unstyled mb-0" style="width: 131px">
+              <li><a class="p-2 text-muted" href="#">MYSQL Tutorial</a></li>
+            </ol>
+          </div>
+
+          <!-- <div class="p-3">
+            <h4 class="font-italic">Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ol>
+          </div> -->
+        </aside>
+        <!-- /.blog-sidebar -->
+      </div>
+      <!-- /.row -->
+    </main>
+    <!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>'
+        );
+    </script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      Holder.addTheme("thumb", {
+        bg: "#55595c",
+        fg: "#eceeef",
+        text: "Thumbnail",
+      });
+    </script>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="200"
+      height="250"
+      viewBox="0 0 200 250"
+      preserveAspectRatio="none"
+      style="
+        display: none;
+        visibility: hidden;
+        position: absolute;
+        top: -100%;
+        left: -100%;
+      "
+    >
+      <defs><style type="text/css"></style></defs>
+      <text
+        x="0"
+        y="13"
+        style="
+          font-weight: bold;
+          font-size: 13pt;
+          font-family: Arial, Helvetica, Open Sans, sans-serif;
+        "
+      >
+        Thumbnail
+      </text>
+    </svg>
+  </body>
+</html>

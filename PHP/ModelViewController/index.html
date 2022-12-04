@@ -1,0 +1,208 @@
+<html>
+    <head>
+        <title>Documents - Model View Controller (MVC)</title>
+        <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/css/01aaa1aak.min.css" rel="stylesheet"><!-- style CSS -->
+        <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/css/01aaa1aah.css" rel="stylesheet"><!-- Code block CSS -->
+    </head>
+    <body>
+        <header class="navbar navbar-expand-lg navbar-dark bd-navbar sticky-top">
+            <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
+                <div class="container-fluid"><a class="navbar-brand" href="#" style="font-size: 1.5rem;">DOCUMENTS</a></div>
+            </nav>
+        </header>
+        <div class="wrapper clearfix">
+            <div class="leftcolumn" id="myNav">
+                <div class="segment"><span>AWS</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../AWS/ActiveDirectory/" title="Active Directory">Active Directory</a></div>
+                <div class="chapters"><a href="../../AWS/AWSCLI/" title="AWSCLI">AWSCLI</a></div>
+                <div class="chapters"><a href="../../AWS/RDS/" title="RDS">RDS</a></div>
+                <div class="chapters"><a href="../../AWS/EC2/" title="EC2">EC2</a></div>
+                <div class="chapters"><a href="../../AWS/EC2forApache/" title="EC2 for apache">EC2 for apache</a></div>
+                <div class="chapters"><a href="../../AWS/Lightsail/" title="Lightsail">Lightsail</a></div>
+                <div class="chapters"><a href="../../AWS/WorkSpace/" title="Workspace">Workspace</a></div>
+                <div class="chapters"><a href="../../AWS/VPC/" title="VPC">VPC</a></div>
+                <div class="chapters"><a href="../../AWS/CloudFront/" title="CloudFront">CloudFront</a></div>
+                <div class="chapters"><a href="../../AWS/S3/" title="S3">S3</a></div>
+                <div class="chapters"><a href="../../AWS/Route53/" title="Route53">Route53</a></div>
+                <div class="segment"><span>BEAVER BUILDER</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../BEAVERBUILDER/Setup/" title="Setup">Setup</a></div>
+                <div class="chapters"><a href="../../BEAVERBUILDER/Import&Export/" title="Import & Export">Import & Export</a></div>
+                <div class="segment"><span>CSS</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../CSS/Bootstrap/" title="Bootstrap">Bootstrap</a></div>
+                <div class="chapters"><a href="../../CSS/FontAwesome/" title="Font Awesome">Font Awesome</a></div>
+                <div class="chapters"><a href="../../CSS/GoogleFonts/" title="Google Fonts">Google Fonts</a></div>
+                <div class="chapters"><a href="../../CSS/ColorPallette/" title="Color Pallette">Color Pallette</a></div>
+                <div class="segment"><span>G.I.M.P</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../GIMP/BackgroundTransparency/" title="Background transparency">Background transparency</a></div>
+                <div class="segment"><span>MYSQL</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../MYSQL/Tutorial/" title="MYSQL Tutorial">MYSQL Tutorial</a></div>
+                <div class="segment"><span>PHP</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../PHP/ModelViewController/" title="Model View Controller">Model View Controller (MVC)</a></div>
+                <div class="chapters"><a href="../../PHP/MYSQL/" title="MYSQL">MYSQL</a></div>
+                <div class="chapters"><a href="../../PHP/Operators/" title="Operators">Operators</a></div>
+                <div class="segment"><span>PYTHON</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../PYTHON/Installation/" title="Python installation">Python installation</a></div>
+                <div class="chapters"><a href="../../PYTHON/MachineLearning/" title="Machine Learning">Machine Learning</a></div>
+                <div class="chapters"><a href="../../PYTHON/Selenium/" title="Selenium">Selenium</a></div>
+            </div>
+            <div class="centercolumn">
+                <div class="content"><a href="javascript:void(0);" class="previous-page disabled"
+                        title="Go to Previous Page : Disabled"></a><a href="javascript:void(0);" class="next-page disabled"
+                        title="Go to Next Page : Disabled"></a>
+                    <h1>PHP Model View Controller (MVC)</h1>
+                    <h2>Model View Controller (MVC)</h2>
+                    <p class="summary">
+                        September 14, 2021 by
+                        <a target="_blank" href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+                    </p>
+                    <p>
+                        When writing in PHP the best way to set out your code is to make
+                        three folders:
+                    </p>
+                    <p><b>Model</b> is where your database connection code is kept.</p>
+                    <p>
+                        <b>View</b> is where the front-end code for what the user view’s
+                        is kept.
+                    </p>
+                    <p>
+                        <b>Controller</b> is where the back-end code that interacts with
+                        the database, works with the data it has received and then
+                        displays the output to the View.
+                    </p>
+                    <b>Model</b>
+                    <div class="codeblock">
+                        <code>
+                        <span class="tag">$servername</span> = <span class="text">"localhost"</span>;<br>
+                        <span class="tag">$username</span> = <span class="text">"root"</span>;<br>
+                        <span class="tag">$password</span> = <span class="text">""</span>;<br>
+                        <span class="tag">$dbname</span> = <span class="text">"databaseName"</span>;<br><br>
+        
+                            <span class="comment">/*Create connection*/</span><br>
+                            <span class="tag">$conn</span> = <span class="tag">new</span> <span class="number">mysqli</span>(<span class="tag">$servername</span>, <span class="tag">$username</span>, <span class="tag">$password</span>, <span class="tag">$dbname</span>);<br>
+                            <span class="comment">/*Check connection*/</span><br>
+                            <span class="statement">if</span> (<span class="tag">$conn</span>-&gt;<span class="tag">connect_error</span>) {<br>
+                            <span class="statement">die</span>(<span class="text">"Connection failed: "</span> . <span class="tag">$conn</span>-&gt;<span class="tag">connect_error</span>);<br>
+                            }
+                        </code>
+                    </div>
+                    <p>
+                        In the code above we use five variables to store the information
+                        to connect to the database and the fifth variable is where we
+                        store the database connection. The IF Statement at the bottom
+                        checks if the connection to the database was successful.
+                    </p>
+        
+                    <b>Controller</b>
+                    <div class="codeblock">
+                        <code>
+                        <span class="function">include</span>(<span class="text">'C:/xampp/htdocs/model/logDatabase.php'</span>);<br>
+                        <span class="tag">$time</span> = <span class="function">date</span>(<span class="text">'Y-m-d H:i:s'</span>);<br>
+                        <span class="tag">$query</span> = <span class="text">"INSERT INTO `loggingsystem`.`tbl_logs` (`log`, `log_time`) VALUES ('" . $_POST['log'] . "', '" . $time . "')"</span>;<br><br>
+        
+                        <span class="tag">$conn</span>-&gt;<span class="function">query</span>(<span class="tag">$query</span>);<br>
+                        <span class="tag">$conn</span>-&gt;<span class="function">close</span>();<br>
+                            <span class="function">header</span>(<span class="text">'Location: /view/viewLog.php'</span>);<br>
+                        </code>
+                    </div>
+                    <p>
+                        In the first line of the code for the controller I have stated
+                        where to find the database file in the model folder, which
+                        contains the connection to the database.
+                    </p>
+                    <p>
+                        We create two variables and name them $time and $query. $time will
+                        use the date()function to store the current date and time of the
+                        server.
+                    </p>
+                    <p>An example of what the query will look like is listed below.</p>
+                    <p>
+                        INSERT INTO `loggingsystem`.`tbl_logs` (`log`, `log_time`) VALUES
+                        ('John Doe logged out', '21/01/19 12:00:00');
+                    </p>
+                    <p>
+                        We then take the connection variable created in the model folder
+                        and submit the query to the database, It then closes the
+                        connection and redirects the webpage to the view file.
+                    </p>
+                    <b>View</b>
+                    <div class="codeblock">
+                        <code>
+                        <span class="function">include</span>(<span class="text">'C:/xampp/htdocs/model/logDatabase.php'</span>);<br>
+                        <span class="tag">$query</span> = <span class="text">"SELECT * FROM tbl_logs"</span>;<br><br>
+        
+                        <span class="tag">$result</span> = <span class="tag">$conn</span>-&gt;<span class="function">query</span>(<span class="tag">$query</span>);<br>
+                        <span class="statement">if</span> (<span class="tag">$result</span>-&gt;num_rows &gt; 0) {<br>
+                            <span class="tag">$int</span> = <span class="number">0</span>;<br>
+                            <span class="statement">while</span> (<span class="tag">$row</span> = <span class="tag">$result</span>-&gt;<span class="function">fetch_assoc</span>()) {<br>
+                            <span class="tag">$log_id</span>[<span class="tag">$int</span>] = <span class="tag">$row</span>[<span class="text">'log_id'</span>];<br>
+                            <span class="tag">$log</span>[<span class="tag">$int</span>] = <span class="tag">$row</span>[<span class="text">'log'</span>];<br>
+                            <span class="tag">$log_time</span>[<span class="tag">$int</span>] = <span class="tag">$row</span>[<span class="text">'log_time'</span>];<br>
+                        <span class="tag">$int++</span>;<br>
+                        }<br>
+                        } <span class="statement">else</span> {<br>
+                            <span class="function">echo</span> <span class="text">"0 results"</span>;<br>
+                        }<br>
+                        <span class="tag">$conn</span>-&gt;close();
+                        </code>
+                    </div>
+                    <p>
+                        Again I have included where the database connection is and then it
+                        will then use the variables in that file.
+                    </p>
+                    <p>
+                        The first variable is the query to get everything from tbl_logs.
+                        The code then makes a connection to the database to submit the
+                        query and return everything from tbl_logs, what the database
+                        returns is then put into a $result variable.
+                    </p>
+                    <p>
+                        The IF ELSE statement checks to see if there are any rows of data
+                        in tbl_logs. If there are no rows it then shows on the web page 0
+                        results.
+                    </p>
+                    <p>
+                        If there are rows in the table, it then triggers a WHILE LOOP to
+                        take all the information and put them into arrays and then closes
+                        the database connection.
+                    </p>
+                    <div class="codeblock">
+                        <code>
+                        <span class="tag">$arrayLength</span> = <span class="function">count</span>(<span class="tag">$log_id</span>);<br>
+                            <span class="tag">$i</span> = <span class="number">0</span>;<br>
+                        <span class="statement">while</span> (<span class="tag">$i</span> &lt; <span class="tag">$arrayLength</span>) {<br>
+                            <span class="function">echo</span> <span class="text">'</span><br>
+                            <span class="text">'</span> . <span class="tag">$log_id</span>[<span class="tag">$i</span>] . <span class="text">'</span><br>
+                            <span class="text">'</span> . <span class="tag">$log</span>[<span class="tag">$i</span>] . <span class="text">'</span><br>
+                            <span class="text">'</span> . <span class="tag">$log_time</span>[<span class="tag">$i</span>] . <span class="text">'</span><br>
+                        <span class="text">'</span>;<br>
+                        <span class="tag">$i++</span>;<br>
+                        }
+                        </code>
+                    </div>
+        
+                    <p>
+                        Next we will take the arrays with the information from the
+                        database and then list them out into a table using the echo
+                        function in PHP.
+                    </p>
+                    <p>
+                        The first line of PHP counts the length of the array and puts it
+                        in a variable called arrayLength. We do this so the WHILE LOOP we
+                        have included in this section knows how many times to loop.
+                    </p>
+        
+                    <hr>
+                    <div class="line"></div>
+                    <!--Bottom Navigation-->
+                    <div class="bottom-link clearfix"><a href="javascript:void(0);" class="previous-page-bottom disabled"
+                            title="Disabled">PreviousPage</a><a href="javascript:void(0);" class="next-page-bottom disabled"
+                            title="Disabled">Next Page</a></div>
+                    <!--End:Bottom Navigation-->
+                    <!-- InstanceEndEditable -->
+                </div>
+            </div>
+            <div class="rightcolumn"></div>
+        </div>
+    </body>
+</html>

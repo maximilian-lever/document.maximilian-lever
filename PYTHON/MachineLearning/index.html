@@ -1,0 +1,390 @@
+<html>
+    <head>
+        <title>Documents - Machine Learning</title>
+        <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/css/01aaa1aak.min.css" rel="stylesheet"><!-- style CSS -->
+        <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/css/01aaa1aah.css" rel="stylesheet"><!-- Code block CSS -->
+    </head>
+    <body>
+        <header class="navbar navbar-expand-lg navbar-dark bd-navbar sticky-top">
+            <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
+                <div class="container-fluid"><a class="navbar-brand" href="#" style="font-size: 1.5rem;">DOCUMENTS</a></div>
+            </nav>
+        </header>
+        <div class="wrapper clearfix">
+            <div class="leftcolumn" id="myNav">
+                <div class="segment"><span>AWS</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../AWS/ActiveDirectory/" title="Active Directory">Active Directory</a></div>
+                <div class="chapters"><a href="../../AWS/AWSCLI/" title="AWSCLI">AWSCLI</a></div>
+                <div class="chapters"><a href="../../AWS/RDS/" title="RDS">RDS</a></div>
+                <div class="chapters"><a href="../../AWS/EC2/" title="EC2">EC2</a></div>
+                <div class="chapters"><a href="../../AWS/EC2forApache/" title="EC2 for apache">EC2 for apache</a></div>
+                <div class="chapters"><a href="../../AWS/Lightsail/" title="Lightsail">Lightsail</a></div>
+                <div class="chapters"><a href="../../AWS/WorkSpace/" title="Workspace">Workspace</a></div>
+                <div class="chapters"><a href="../../AWS/VPC/" title="VPC">VPC</a></div>
+                <div class="chapters"><a href="../../AWS/CloudFront/" title="CloudFront">CloudFront</a></div>
+                <div class="chapters"><a href="../../AWS/S3/" title="S3">S3</a></div>
+                <div class="chapters"><a href="../../AWS/Route53/" title="Route53">Route53</a></div>
+                <div class="segment"><span>BEAVER BUILDER</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../BEAVERBUILDER/Setup/" title="Setup">Setup</a></div>
+                <div class="chapters"><a href="../../BEAVERBUILDER/Import&Export/" title="Import & Export">Import & Export</a></div>
+                <div class="segment"><span>CSS</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../CSS/Bootstrap/" title="Bootstrap">Bootstrap</a></div>
+                <div class="chapters"><a href="../../CSS/FontAwesome/" title="Font Awesome">Font Awesome</a></div>
+                <div class="chapters"><a href="../../CSS/GoogleFonts/" title="Google Fonts">Google Fonts</a></div>
+                <div class="chapters"><a href="../../CSS/ColorPallette/" title="Color Pallette">Color Pallette</a></div>
+                <div class="segment"><span>G.I.M.P</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../GIMP/BackgroundTransparency/" title="Background transparency">Background transparency</a></div>
+                <div class="segment"><span>MYSQL</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../MYSQL/Tutorial/" title="MYSQL Tutorial">MYSQL Tutorial</a></div>
+                <div class="segment"><span>PHP</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../PHP/ModelViewController/" title="Model View Controller">Model View Controller (MVC)</a></div>
+                <div class="chapters"><a href="../../PHP/MYSQL/" title="MYSQL">MYSQL</a></div>
+                <div class="chapters"><a href="../../PHP/Operators/" title="Operators">Operators</a></div>
+                <div class="segment"><span>PYTHON</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../PYTHON/Installation/" title="Python installation">Python installation</a></div>
+                <div class="chapters"><a href="../../PYTHON/MachineLearning/" title="Machine Learning">Machine Learning</a></div>
+                <div class="chapters"><a href="../../PYTHON/Selenium/" title="Selenium">Selenium</a></div>
+            </div>
+            <div class="centercolumn">
+                <div class="content"><a href="javascript:void(0);" class="previous-page disabled"
+                        title="Go to Previous Page : Disabled"></a><a href="javascript:void(0);" class="next-page disabled"
+                        title="Go to Next Page : Disabled"></a>
+                    <h1>Python Machine Learning</h1>
+                    <h2>Machine Learning</h2>
+                    <p class="summary">
+                        September 14, 2020 by
+                        <a target="_blank" href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+                    </p>
+                    <p>1.Download and install Anaconda (<a target="_blank" href="https://www.anaconda.com/">www.anaconda.com</a>)
+                    </p>
+                    <p>2.Once installed open Anaconda Navigator</p>
+                    <p>3.Launch Jupyter Notebook</p>
+                    <p>4.Once in Jupyter notebook upload the csv file e.g.cars.csv</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr><th>Car</th>
+                            <th>Model</th>
+                            <th>Volume</th>
+                            <th>Weight</th>
+                            <th>CO2</th>
+                        </tr></thead>
+                        <tbody>
+                            <tr>
+                            <td>Toyota</td>
+                            <td>Aygo</td>
+                            <td>1000</td>
+                            <td>790</td>
+                            <td>99</td>
+                            </tr>
+                            <tr>
+                            <td>Mitsubishi</td>
+                            <td>Space Star</td>
+                            <td>1200</td>
+                            <td>1160</td>
+                            <td>95</td>
+                            </tr>
+                            <tr>
+                            <td>Skoda</td>
+                            <td>Citigo</td>
+                            <td>1000</td>
+                            <td>929</td>
+                            <td>95</td>
+                            </tr>
+                            <tr>
+                            <td>Fiat</td>
+                            <td>500</td>
+                            <td>900</td>
+                            <td>865</td>
+                            <td>90</td>
+                            </tr>
+                            <tr>
+                            <td>Mini</td>
+                            <td>Cooper</td>
+                            <td>1500</td>
+                            <td>1140</td>
+                            <td>105</td>
+                            </tr>
+                            <tr>
+                            <td>VW</td>
+                            <td>Up!</td>
+                            <td>1000</td>
+                            <td>929</td>
+                            <td>105</td>
+                            </tr>
+                            <tr>
+                            <td>Skoda</td>
+                            <td>Fabia</td>
+                            <td>1400</td>
+                            <td>1109</td>
+                            <td>90</td>
+                            </tr>
+                            <tr>
+                            <td>Mercedes</td>
+                            <td>A-Class</td>
+                            <td>1500</td>
+                            <td>1365</td>
+                            <td>92</td>
+                            </tr>
+                            <tr>
+                            <td>Ford</td>
+                            <td>Fiesta</td>
+                            <td>1500</td>
+                            <td>1112</td>
+                            <td>98</td>
+                            </tr>
+                            <tr>
+                            <td>Audi</td>
+                            <td>A1</td>
+                            <td>1600</td>
+                            <td>1150</td>
+                            <td>99</td>
+                            </tr>
+                            <tr>
+                            <td>Hyundai</td>
+                            <td>I20</td>
+                            <td>1100</td>
+                            <td>980</td>
+                            <td>99</td>
+                            </tr>
+                            <tr>
+                            <td>Suzuki</td>
+                            <td>Swift</td>
+                            <td>1300</td>
+                            <td>990</td>
+                            <td>101</td>
+                            </tr>
+                            <tr>
+                            <td>Ford</td>
+                            <td>Fiesta</td>
+                            <td>1000</td>
+                            <td>1112</td>
+                            <td>99</td>
+                            </tr>
+                            <tr>
+                            <td>Honda</td>
+                            <td>Civic</td>
+                            <td>1600</td>
+                            <td>1252</td>
+                            <td>94</td>
+                            </tr>
+                            <tr>
+                            <td>Hundai</td>
+                            <td>I30</td>
+                            <td>1600</td>
+                            <td>1326</td>
+                            <td>97</td>
+                            </tr>
+                            <tr>
+                            <td>Opel</td>
+                            <td>Astra</td>
+                            <td>1600</td>
+                            <td>1330</td>
+                            <td>97</td>
+                            </tr>
+                            <tr>
+                            <td>BMW</td>
+                            <td>1</td>
+                            <td>1600</td>
+                            <td>1365</td>
+                            <td>99</td>
+                            </tr>
+                            <tr>
+                            <td>Mazda</td>
+                            <td>3</td>
+                            <td>2200</td>
+                            <td>1280</td>
+                            <td>104</td>
+                            </tr>
+                            <tr>
+                            <td>Skoda</td>
+                            <td>Rapid</td>
+                            <td>1600</td>
+                            <td>1119</td>
+                            <td>104</td>
+                            </tr>
+                            <tr>
+                            <td>Ford</td>
+                            <td>Focus</td>
+                            <td>2000</td>
+                            <td>1328</td>
+                            <td>105</td>
+                            </tr>
+                            <tr>
+                            <td>Ford</td>
+                            <td>Mondeo</td>
+                            <td>1600</td>
+                            <td>1584</td>
+                            <td>94</td>
+                            </tr>
+                            <tr>
+                            <td>Opel</td>
+                            <td>Insignia</td>
+                            <td>2000</td>
+                            <td>1428</td>
+                            <td>99</td>
+                            </tr>
+                            <tr>
+                            <td>Mercedes</td>
+                            <td>C-Class</td>
+                            <td>2100</td>
+                            <td>1365</td>
+                            <td>99</td>
+                            </tr>
+                            <tr>
+                            <td>Skoda</td>
+                            <td>Octavia</td>
+                            <td>1600</td>
+                            <td>1415</td>
+                            <td>99</td>
+                            </tr>
+                            <tr>
+                            <td>Volvo</td>
+                            <td>S60</td>
+                            <td>2000</td>
+                            <td>1415</td>
+                            <td>99</td>
+                            </tr>
+                            <tr>
+                            <td>Mercedes</td>
+                            <td>CLA</td>
+                            <td>1500</td>
+                            <td>1465</td>
+                            <td>102</td>
+                            </tr>
+                            <tr>
+                            <td>Audi</td>
+                            <td>A4</td>
+                            <td>2000</td>
+                            <td>1490</td>
+                            <td>104</td>
+                            </tr>
+                            <tr>
+                            <td>Audi</td>
+                            <td>A6</td>
+                            <td>2000</td>
+                            <td>1725</td>
+                            <td>114</td>
+                            </tr>
+                            <tr>
+                            <td>Volvo</td>
+                            <td>V70</td>
+                            <td>1600</td>
+                            <td>1523</td>
+                            <td>109</td>
+                            </tr>
+                            <tr>
+                            <td>BMW</td>
+                            <td>5</td>
+                            <td>2000</td>
+                            <td>1705</td>
+                            <td>114</td>
+                            </tr>
+                            <tr>
+                            <td>Mercedes</td>
+                            <td>E-Class</td>
+                            <td>2100</td>
+                            <td>1605</td>
+                            <td>115</td>
+                            </tr>
+                            <tr>
+                            <td>Volvo</td>
+                            <td>XC70</td>
+                            <td>2000</td>
+                            <td>1746</td>
+                            <td>117</td>
+                            </tr>
+                            <tr>
+                            <td>Ford</td>
+                            <td>B-Max</td>
+                            <td>1600</td>
+                            <td>1235</td>
+                            <td>104</td>
+                            </tr>
+                            <tr>
+                            <td>BMW</td>
+                            <td>2</td>
+                            <td>1600</td>
+                            <td>1390</td>
+                            <td>108</td>
+                            </tr>
+                            <tr>
+                            <td>Opel</td>
+                            <td>Zafira</td>
+                            <td>1600</td>
+                            <td>1405</td>
+                            <td>109</td>
+                            </tr>
+                            <tr>
+                            <td>Mercedes</td>
+                            <td>SLK</td>
+                            <td>2500</td>
+                            <td>1395</td>
+                            <td>120</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                    <p>5.Import panda library to read files</p>
+                    <div class="codeblock">
+                        <code>
+                            <span class="statement">import</span> pandas<br>
+                            <span class="statement">from</span> sklearn <span class="statement">import</span> linear_model
+                        </code>
+                    </div>
+                    <p>6.Read the csv file</p>
+                    <div class="codeblock">
+                        <code>
+                            df = pandas.read_csv(<span class="text">"cars.csv"</span>)
+                        </code>
+                    </div>
+                    <p>7.Makes a list of the 'Weight' and 'Volume' values</p>
+                    <div class="codeblock">
+                        <code>
+                            X = df[[<span class="text">'Weight'</span>,<span class="text">'Volume'</span>]]
+                        </code>
+                    </div>
+                    <p>8.Make a list of the 'CO2' values</p>
+                    <div class="codeblock">
+                        <code> y = df[<span class="text">'CO2'</span>]</code>
+                    </div>
+                    <p>
+                        9.This object has a method called fit() that takes the independent
+                        and dependent values as parameters and fills the regression object
+                        with data that describes the relationship:
+                    </p>
+                    <div class="codeblock">
+                        <code>
+                            regr = linear_model.LinearRegression()<span class="comment">#Linear Regression</span>
+                            <br>
+                            regr.fit(<span class="tag">X</span>,
+                            <span class="tag">y</span>)
+                        </code>
+                    </div>
+                    <p>
+                        10. Predict the CO2 emission of a car where the weight is 2300kg,
+                        and the volume is 1300ccm
+                    </p>
+                    <div class="codeblock">
+                        <code>
+                            predictedCO2 = regr.predict([[<span class="number">2300</span>,
+                            <span class="number">1300</span>]])<br>
+                            print(predictedCO2)<br>
+                            [107.2087328]
+                        </code>
+                    </div>
+                    <hr>
+                    <div class="line"></div>
+                    <!--Bottom Navigation-->
+                    <div class="bottom-link clearfix"><a href="javascript:void(0);" class="previous-page-bottom disabled"
+                            title="Disabled">PreviousPage</a><a href="javascript:void(0);" class="next-page-bottom disabled"
+                            title="Disabled">Next Page</a></div>
+                    <!--End:Bottom Navigation-->
+                    <!-- InstanceEndEditable -->
+                </div>
+            </div>
+            <div class="rightcolumn"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,200 @@
+<html>
+    <head>
+        <link rel="shortcut icon" type="image/x-icon" href="https://s3.eu-west-2.amazonaws.com/maximilian-lever.com-assets/IMG/MJL.png">
+        <title>Documents - Selenium</title>
+        <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/css/01aaa1aak.min.css" rel="stylesheet"><!-- style CSS -->
+        <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/css/01aaa1aah.css" rel="stylesheet"><!-- Code block CSS -->
+    </head>
+    <body>
+        <header class="navbar navbar-expand-lg navbar-dark bd-navbar sticky-top">
+            <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
+                <div class="container-fluid"><a class="navbar-brand" href="#" style="font-size: 1.5rem;">DOCUMENTS</a></div>
+            </nav>
+        </header>
+        <div class="wrapper clearfix">
+            <div class="leftcolumn" id="myNav">
+                <div class="segment"><span>AWS</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../AWS/ActiveDirectory/" title="Active Directory">Active Directory</a></div>
+                <div class="chapters"><a href="../../AWS/AWSCLI/" title="AWSCLI">AWSCLI</a></div>
+                <div class="chapters"><a href="../../AWS/RDS/" title="RDS">RDS</a></div>
+                <div class="chapters"><a href="../../AWS/EC2/" title="EC2">EC2</a></div>
+                <div class="chapters"><a href="../../AWS/EC2forApache/" title="EC2 for apache">EC2 for apache</a></div>
+                <div class="chapters"><a href="../../AWS/Lightsail/" title="Lightsail">Lightsail</a></div>
+                <div class="chapters"><a href="../../AWS/WorkSpace/" title="Workspace">Workspace</a></div>
+                <div class="chapters"><a href="../../AWS/VPC/" title="VPC">VPC</a></div>
+                <div class="chapters"><a href="../../AWS/CloudFront/" title="CloudFront">CloudFront</a></div>
+                <div class="chapters"><a href="../../AWS/S3/" title="S3">S3</a></div>
+                <div class="chapters"><a href="../../AWS/Route53/" title="Route53">Route53</a></div>
+                <div class="segment"><span>BEAVER BUILDER</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../BEAVERBUILDER/Setup/" title="Setup">Setup</a></div>
+                <div class="chapters"><a href="../../BEAVERBUILDER/Import&Export/" title="Import & Export">Import & Export</a></div>
+                <div class="segment"><span>CSS</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../CSS/Bootstrap/" title="Bootstrap">Bootstrap</a></div>
+                <div class="chapters"><a href="../../CSS/FontAwesome/" title="Font Awesome">Font Awesome</a></div>
+                <div class="chapters"><a href="../../CSS/GoogleFonts/" title="Google Fonts">Google Fonts</a></div>
+                <div class="chapters"><a href="../../CSS/ColorPallette/" title="Color Pallette">Color Pallette</a></div>
+                <div class="segment"><span>G.I.M.P</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../GIMP/BackgroundTransparency/" title="Background transparency">Background transparency</a></div>
+                <div class="segment"><span>MYSQL</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../MYSQL/Tutorial/" title="MYSQL Tutorial">MYSQL Tutorial</a></div>
+                <div class="segment"><span>PHP</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../PHP/ModelViewController/" title="Model View Controller">Model View Controller (MVC)</a></div>
+                <div class="chapters"><a href="../../PHP/MYSQL/" title="MYSQL">MYSQL</a></div>
+                <div class="chapters"><a href="../../PHP/Operators/" title="Operators">Operators</a></div>
+                <div class="segment"><span>PYTHON</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../PYTHON/Installation/" title="Python installation">Python installation</a></div>
+                <div class="chapters"><a href="../../PYTHON/MachineLearning/" title="Machine Learning">Machine Learning</a></div>
+                <div class="chapters"><a href="../../PYTHON/Selenium/" title="Selenium">Selenium</a></div>
+            </div>
+            <div class="centercolumn">
+                <div class="content">
+                    <a href="javascript:void(0);" class="previous-page disabled" title="Go to Previous Page : Disabled"></a>
+                    <a href="javascript:void(0);" class="next-page disabled" title="Go to Next Page : Disabled"></a>
+                    <h1>Python Selenium</h1>
+                    <h2>Selenium install</h2>
+                    <p class="summary">
+                        September 21, 2021 by
+                        <a target="_blank" href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+                    </p>
+                    <p>1.Open Command Prompt</p>
+                    <p>2.Type "pip install selenium" and press enter</p>
+                    <p>
+                        <i>*If Command Prompt returns 'Requirement already satisfied: selenium in c:\users\max\appdata\roaming\python\python39\site-packages (3.xxx.x)' Then selenium is already installed.*</i>
+                    </p>
+                    <div class="line"></div>
+                    <h2></h2>
+                    <p class="summary">
+                        September 21, 2021 by
+                        <a target="_blank" href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+                    </p>
+                    <div class="line"></div>
+                    <h2>Set Up</h2>
+                    <p class="summary">
+                        September 21, 2021 by
+                        <a target="_blank" href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+                    </p>
+                    <p>1.Call the webdriver from the Selenium libary using the import below.</p>
+                    <div class="codeblock">
+                        <code>
+                            <span class="statement">from</span> <span class="number">selenium</span> <span class="statement">import</span> <span class="number">webdriver</span>
+                        </code>
+                    </div>
+                    <p>2.We will now set a variable to the location of chromedriver.exe</p>
+                    <div class="codeblock">
+                        <code>
+                            <span class="tag">PATH</span> = <span class="text">"C:\Program Files (x86)\chromedriver.exe"</span><span class="comment"># Location of Chrome webdriver</span>
+                        </code>
+                    </div>
+                    <p>3.Create a variable which will store the webdriver.</p>
+                    <div class="codeblock">
+                        <code>
+                            <span class="attrib">driver</span> = <span class="attrib">webdriver</span>.<span class="function">Chrome</span>(<span class="tag">PATH</span>)
+                        </code>
+                    </div>
+                    <p>4.To give the driver a website use the .get() function. This will open us a chrome window and display the Website given. (AKA a head)</p>
+                    <div class="codeblock">
+                        <code>
+                            <span class="attrib">driver</span>.<span class="function">get</span>(<span class="text">'http://document.maximilian-lever.com/'</span>)
+                        </code>
+                    </div>
+                    <p>Example:</p>
+                    <div class="codeblock">
+                        <code>
+                            <span class="comment"># --- SCRAPER --------------------------------------------------</span><br>
+                            <span class="statement">from</span> <span class="number">selenium</span> <span class="statement">import</span> <span class="number">webdriver</span><br>
+                            <span class="comment"># --------------------------------------------------------------</span><br>
+                            <span class="tag">PATH</span> = <span class="text">"C:\Program Files (x86)\chromedriver.exe"</span><span class="comment"># Location of Chrome webdriver</span><br>
+                            <span class="attrib">driver</span> = <span class="attrib">webdriver</span>.<span class="function">Chrome</span>(<span class="tag">PATH</span>, <span class="attrib">chrome_options</span>=<span class="attrib">options</span>)<br>
+                            <span class="attrib">driver</span>.<span class="function">get</span>(<span class="text">'http://document.maximilian-lever/'</span>)<br>
+                            <span class="attrib">driver</span>.<span class="function">quit</span>()
+                        </code>
+                    </div>
+                    <div class="line"></div>
+                    <h2>Headless webdriver</h2>
+                    <p class="summary">
+                        September 21, 2021 by
+                        <a target="_blank" href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+                    </p>
+                    <p>1.This line we will put under the webdiver import.</p>
+                    <div class="codeblock">
+                        <code>
+                            <span class="statement">from</span> <span class="number">selenium</span>.<span class="number">webdriver</span>.<span class="number">chrome</span>.<span class="number">options</span> <span class="statement">import</span> <span class="number">Options</span><br>
+                        </code>
+                    </div>
+                    <p>2.Now set the headless option</p>
+                    <div class="codeblock">
+                        <code>
+                                
+                            <span class="attrib">options</span> = <span class="function">Options</span>()<br>
+                            <span class="attrib">options</span>.<span class="attrib">headless</span> = <span class="tag">True</span><br>
+                            <span class="attrib">driver</span> = <span class="attrib">webdriver</span>.<span class="function">Chrome</span>(<span class="tag">PATH</span>, <span class="attrib">chrome_options</span>=<span class="attrib">options</span>)
+                        </code>
+                    </div>
+                    <p>Example:</p>
+                    <div class="codeblock">
+                        <code>
+                            <span class="comment"># --- SCRAPER --------------------------------------------------</span><br>
+                            <span class="statement">from</span> <span class="number">selenium</span> <span class="statement">import</span> <span class="number">webdriver</span><br>
+                            <span class="statement">from</span><span class="number">selenium</span>.<span class="number">webdriver</span>.<span class="number">chrome</span>.<span class="number">options</span> <span class="statement">import</span> <span class="number">Options</span><br>
+                            <span class="comment"># --------------------------------------------------------------</span><br>
+                            <span class="tag">PATH</span> = <span class="text">"C:\Program Files (x86)\chromedriver.exe"</span><span class="comment"># Location of Chrome webdriver</span><br>
+                            <span class="attrib">options</span> = <span class="function">Options</span>()<br>
+                            <span class="attrib">options</span>.<span class="attrib">headless</span> = <span class="tag">True</span><br>
+                            <span class="attrib">driver</span> = <span class="attrib">webdriver</span>.<span class="function">Chrome</span>(<span class="tag">PATH</span>, <span class="attrib">chrome_options</span>=<span class="attrib">options</span>)<br>
+                            <span class="attrib">driver</span>.<span class="function">get</span>(<span class="text">'http://document.maximilian-lever.com/'</span>)<br>
+                            <span class="attrib">driver</span>.<span class="function">quit</span>()
+                        </code>
+                    </div>
+                    <div class="line"></div>
+                    <h2>Selectors</h2>
+                    <p class="summary">
+                        September 21, 2021 by
+                        <a target="_blank" href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+                    </p>
+                    <p>Find single elements. <br>e.g. web element with an id if there are mutiple elements for the selector you have used then the driver will stop after the first element it comes to.</p>
+                    <div class="codeblock">
+                        <code>
+                            <span class="function">find_element_by_id</span>(<span class="text">'ID'</span>)<br>
+                            <span class="function">find_element_by_name</span>(<span class="text">'NAME'</span>)<br>
+                            <span class="function">find_element_by_xpath</span>(<span class="text">'XPATH'</span>)<br>
+                            <span class="function">find_element_by_link_text</span>(<span class="text">'LINKTEXT'</span>)<br>
+                            <span class="function">find_element_by_partial_link_text</span>(<span class="text">'LINKTEXT'</span>)<br>
+                            <span class="function">find_element_by_tag_name</span>(<span class="text">'TAGNAME'</span>)<br>
+                            <span class="function">find_element_by_class_name</span>(<span class="text">'CLASSNAME'</span>)<br>
+                            <span class="function">find_element_by_css_selector</span>(<span class="text">'#SELECTOR'</span>)
+                        </code>
+                    </div>
+                    <p>Find mutiple elements. <br>e.g. web elements with a class</p>
+                    <div class="codeblock">
+                        <code>
+                            <span class="function">find_elements_by_name</span>(<span class="text">'NAME'</span>)<br>
+                            <span class="function">find_elements_by_xpath</span>(<span class="text">'XPATH'</span>)<br>
+                            <span class="function">find_elements_by_link_text</span>(<span class="text">'LINKTEXT'</span>)<br>
+                            <span class="function">find_elements_by_partial_link_text</span>(<span class="text">'LINKTEXT'</span>)<br>
+                            <span class="function">find_elements_by_tag_name</span>(<span class="text">'TAGNAME'</span>)<br>
+                            <span class="function">find_elements_by_class_name</span>(<span class="text">'CLASSNAME'</span>)<br>
+                            <span class="function">find_elements_by_css_selector</span>(<span class="text">'#SELECTOR'</span>)
+                        </code>
+                    </div>
+                    <p>When working with mutiple elements the best way to cycle through what the driver has found is below.</p>
+                    <div class="codeblock">
+                        <code>
+                            <span class="attrib">names</span> = <span class="attrib">driver</span>.<span class="function">find_elements_by_css_selector</span>(<span class="text">.name</span>)<span class="comment"># Creates an array of names</span><br>
+                            <span class="statement">for</span> <span class="attrib">name</span> <span class="statement">in</span> <span class="attrib">names</span>:<span class="comment"># Loops for length of array</span><br>
+                                <span class="function">print</span>(<span class="attrib">name</span>.text)<span class="comment"># prints inner text of each web element of names array</span>
+                        </code>
+                    </div>
+                    <div class="line"></div>
+                    <!--Bottom Navigation-->
+                    <div class="bottom-link clearfix"><a href="javascript:void(0);" class="previous-page-bottom disabled"
+                            title="Disabled">PreviousPage</a><a href="javascript:void(0);" class="next-page-bottom disabled"
+                            title="Disabled">Next Page</a></div>
+                    <!--End:Bottom Navigation-->
+                    <!-- InstanceEndEditable -->
+                </div>
+            </div>
+            <div class="rightcolumn"></div>
+        </div>
+    </body>
+</html>

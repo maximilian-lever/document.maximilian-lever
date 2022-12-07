@@ -6,7 +6,7 @@
         <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/css/01aaa1aak.min.css" rel="stylesheet"><!-- style CSS -->
         <link href="https://dipvkpx7wt4f2.cloudfront.net/assets/css/01aaa1aah.css" rel="stylesheet"><!-- Code block CSS -->
     </head>
-    <body>
+    <body class="container">
         <header class="navbar navbar-expand-lg navbar-dark bd-navbar sticky-top">
             <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
                 <div class="container-fluid"><a class="navbar-brand" href="#" style="font-size: 1.5rem;">DOCUMENTS</a></div>
@@ -46,6 +46,10 @@
                 <div class="chapters"><a href="../../PYTHON/Installation/" title="Python installation">Python installation</a></div>
                 <div class="chapters"><a href="../../PYTHON/MachineLearning/" title="Machine Learning">Machine Learning</a></div>
                 <div class="chapters"><a href="../../PYTHON/Selenium/" title="Selenium">Selenium</a></div>
+                <div class="segment"><span>UBUNTU</span> TUTORIALS</div>
+                <div class="chapters"><a href="../../UBUNTU/BashScript/" title="Bash Script">Bash Script</a></div>
+                <div class="chapters"><a href="../../UBUNTU/MYSQLInstall/" title="MYSQL Install">MYSQL Install</a></div>
+                <div class="chapters"><a href="../../UBUNTU/TaskScheduler/" title="Task Scheduler">Task Scheduler</a></div>
             </div>
             <div class="centercolumn">
                 <div class="content">
@@ -186,10 +190,101 @@
                         </code>
                     </div>
                     <div class="line"></div>
+                    <h2>Selenium</h2>
+                    <p class="summary">
+                        December 05, 2022 by
+                        <a target="_blank" href="https://www.linkedin.com/in/maximilian-lever-09214097/">Maximilian Lever</a>
+                    </p>
+                    1. Installing Google Chrome
+                    Use the below steps to install the latest Google Chrome browser on Ubuntu and Debian systems.
+                    Open a terminal on your system and type:
+                    <div class="codeblock">
+                        <code style="font-size: 10.3px;">
+                            wget -nc https://dl-ssl.google.com/linux/linux_signing_key.pub<br>
+                            cat linux_signing_key.pub | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/linux_signing_key.gpg  >/dev/null
+                        </code>
+                    </div>
+                    Next, create an Apt PPA file for Google Chrome on your system by executing:
+                    <div class="codeblock">
+                        <code style="font-size: 10.3px;">
+                            sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/chrome.list'
+                        </code>
+                    </div>
+                    Now, execute the following commands to update the apt cache and install Google Chrome stable version:
+                    <div class="codeblock">
+                        <code style="font-size: 10.3px;">
+                            sudo apt update<br>
+                            sudo apt install google-chrome-stable
+                        </code>
+                    </div>
+                    Press ‘y’ for all the confirmation asked by the installer.
+                    This will install Google Chrome on your Ubuntu system.
+                    2. Installing Selenium and Webdriver for Python
+                    We will use a virtual environment for running Python scripts. Follow the below steps to create Python virtual environment and install the required python modules.
+                    Create a directory to store Python scripts. Then switch to the newly-created directory.
+                    <div class="codeblock">
+                        <code style="font-size: 10.3px;">
+                            mkdir tests && cd tests
+                        </code>
+                    </div>
+                    Set up the Python virtual environment and activate it.
+                    <div class="codeblock">
+                        <code style="font-size: 10.3px;">
+                            sudo apt install python3.10-venv<br>
+                            python3 -m venv venv<br>
+                            source venv/bin/activate<br>
+                        </code>
+                    </div>
+                    Once the environment is activated, You will find the updated prompt as shown below screenshot:
+                    Create Python Environment for Selenium on Ubuntu
+                    Now use PIP to install the selenium and webdriver-manager Python modules under the virtual environment.
+                    <div class="codeblock">
+                        <code style="font-size: 10.3px;">
+                            pip install selenium webdriver-manager
+                        </code>
+                    </div>
+                    Installing Selenium and Webdriver Python Module on Ubuntu & Debian
+                    3. Example 1: Selenium Python Script with Headless Chrome
+                    Your system is ready to run Selenium scripts written in Python. Now, create a sample selenium script in Python that fetches the title of a website.
+                    This script will run headless, So you can run it without an X desktop environment. You can simply SSH to your system and run the below example:
+                    Create a Python script and edit it in your favorite text editor:
+                    <div class="codeblock">
+                        <code style="font-size: 10.3px;">
+                            nano test.py
+                        </code>
+                    </div>
+                    Copy-paste the following Selenium Python script to the file.
+                    <div class="codeblock">
+                        <code style="font-size: 10.3px;">
+                            from selenium import webdriver<br>
+                            from selenium.webdriver.chrome.options import Options<br>
+                            from selenium.webdriver.chrome.service import Service<br>
+                            from webdriver_manager.chrome import ChromeDriverManager<br>
+                            <br>
+                            options = Options()<br>
+                            options.add_argument('--headless')<br>
+                            options.add_argument('--no-sandbox')<br>
+                            options.add_argument('--disable-dev-shm-usage')<br>
+                            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)<br>
+                            <br>
+                            driver.get("https://python.org")<br>
+                            print(driver.title)<br>
+                            driver.close()
+                        </code>
+                    </div>
+                    Press CTRL + O to save content to file and press CTRL + X to close editor.
+                    4.	Now, run this Python script in a shell.
+                    <div class="codeblock">
+                        <code style="font-size: 10.3px;">
+                            python test.py
+                        </code>
+                    </div>
+                    <div class="line"></div>
                     <!--Bottom Navigation-->
-                    <div class="bottom-link clearfix"><a href="javascript:void(0);" class="previous-page-bottom disabled"
-                            title="Disabled">PreviousPage</a><a href="javascript:void(0);" class="next-page-bottom disabled"
-                            title="Disabled">Next Page</a></div>
+                    <div class="bottom-link clearfix">
+                        <a href="javascript:void(0);" class="previous-page-bottom disabled" title="Disabled">PreviousPage</a>
+                        <a href="javascript:void(0);" class="next-page-bottom disabled" title="Disabled">Next Page</a>
+                    </div>
                     <!--End:Bottom Navigation-->
                     <!-- InstanceEndEditable -->
                 </div>
